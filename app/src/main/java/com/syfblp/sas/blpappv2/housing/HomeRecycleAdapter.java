@@ -11,6 +11,7 @@ import com.syfblp.sas.blpappv2.R;
 
 import java.util.ArrayList;
 
+
 public class HomeRecycleAdapter extends RecyclerView.Adapter<HomeRecycleAdapter.ViewHolder> {
     private ArrayList<Announcement> mDataset;
 
@@ -48,7 +49,7 @@ public class HomeRecycleAdapter extends RecyclerView.Adapter<HomeRecycleAdapter.
     // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+                                         int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_rowlayout, parent, false);
         // set the view's size, margins, paddings and layout parameters
@@ -61,7 +62,7 @@ public class HomeRecycleAdapter extends RecyclerView.Adapter<HomeRecycleAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-       Announcement name = mDataset.get(position);
+        Announcement name = mDataset.get(position);
 
         holder.txtHeader.setText(name.getDescription());
 
@@ -77,4 +78,3 @@ public class HomeRecycleAdapter extends RecyclerView.Adapter<HomeRecycleAdapter.
     }
 
 }
-

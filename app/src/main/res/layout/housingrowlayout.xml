@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="95dp"
     android:padding="6dip"
-    android:fontFamily="sans-serif"
-    >
+    android:fontFamily="sans-serif">
 
     <TextView
         android:id="@+id/firstLine"
@@ -17,8 +17,7 @@
         android:text="Apt Name"
         android:textSize="18sp"
         android:textColor="#3b3b45"
-        android:fontFamily="sans-serif-medium"
-        />
+        android:fontFamily="sans-serif-medium"/>
 
     <TextView
         android:id="@+id/secondLine"
@@ -49,35 +48,32 @@
         android:layout_height="wrap_content"
         android:paddingTop="2dp"
         android:text="Distance"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:textColor="#3b3b45"
         android:id="@+id/distance"
         android:gravity="right"
         android:layout_below="@+id/secondLine"
-        android:layout_alignParentStart="true"
-        android:fontFamily="sans-serif"/>
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$1000+"
-        android:textSize="14sp"
-        android:textColor="#3b3b45"
+        android:textSize="12sp"
+        android:textColor="#3B3C43"
         android:id="@+id/cost"
         android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/firstLine"
-        android:fontFamily="sans-serif"/>
+        android:layout_alignEnd="@+id/firstLine" />
 
     <RatingBar style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:numStars="5"
-        android:stepSize="0.1"
-        android:rating="4.2"
-        android:layout_alignBottom="@+id/firstLine"
-        android:layout_alignEnd="@+id/firstLine"
-        android:fontFamily="sans-serif"/>
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/ratingBar"
+               android:numStars="5"
+               android:stepSize="0.1"
+               android:rating="4.2"
+               android:layout_alignBottom="@+id/firstLine"
+               android:layout_alignEnd="@+id/firstLine" />
 
 
 </RelativeLayout>

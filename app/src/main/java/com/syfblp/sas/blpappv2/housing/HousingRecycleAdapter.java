@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.syfblp.sas.blpappv2.R;
@@ -24,6 +25,7 @@ public class HousingRecycleAdapter extends RecyclerView.Adapter<HousingRecycleAd
         public TextView txtDistance;
         public TextView txtCityState;
         public TextView txtCost;
+        public RatingBar ratingBarValue;
 
         public ViewHolder(View v) {
             super(v);
@@ -33,6 +35,8 @@ public class HousingRecycleAdapter extends RecyclerView.Adapter<HousingRecycleAd
             txtDistance = (TextView) v.findViewById(R.id.distance);
             txtCityState = (TextView) v.findViewById(R.id.thirdLine);
             txtCost = (TextView) v.findViewById(R.id.cost);
+            ratingBarValue = (RatingBar) v.findViewById(R.id.ratingBar);
+
         }
     }
 
@@ -88,10 +92,14 @@ public class HousingRecycleAdapter extends RecyclerView.Adapter<HousingRecycleAd
 
             holder.txtSecondLine.setText(name.getAddress());
 
-        holder.txtDistance.setText(name.getCommute());
-        holder.txtCityState.setText(" " + name.getCity() + ", "+ name.getState() +" ");
-        holder.txtCost.setText("Monthly: $"+name.getRent());
+        holder.txtDistance.setText("Commute Time: "+name.getCommute());
+        holder.txtCityState.setText(", " + name.getCity() + ", "+ name.getState() +" ");
+        holder.txtCost.setText("$"+name.getRent()+"/mo\nper person");
 
+        // Converts the rating bar json value from a string to float, and then sets the ratingFloat variable
+        String ratingString = name.getRating();
+        float ratingFloat = Float.parseFloat(ratingString);
+        holder.ratingBarValue.setRating(ratingFloat);
 
     }
 
@@ -102,3 +110,5 @@ public class HousingRecycleAdapter extends RecyclerView.Adapter<HousingRecycleAd
     }
 
 }
+
+

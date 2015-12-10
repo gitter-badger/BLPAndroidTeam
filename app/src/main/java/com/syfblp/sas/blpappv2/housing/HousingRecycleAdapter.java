@@ -93,7 +93,7 @@ public class HousingRecycleAdapter extends RecyclerView.Adapter<HousingRecycleAd
             holder.txtSecondLine.setText(name.getAddress());
 
         holder.txtDistance.setText("Commute Time: "+name.getCommute());
-        holder.txtCityState.setText(", " + name.getCity() + ", "+ name.getState() +" ");
+        holder.txtCityState.setText(" | " + name.getCity() + ", "+ name.getState() +" ");
         holder.txtCost.setText("$"+name.getRent()+"/mo\nper person");
 
         // Converts the rating bar json value from a string to float, and then sets the ratingFloat variable

@@ -62,17 +62,19 @@
             android:id="@+id/distance"
             android:gravity="right"
             android:layout_below="@+id/secondLine"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:fontFamily="sans-serif"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$1000+"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="#3B3C43"
             android:id="@+id/cost"
             android:layout_centerVertical="true"
-            android:layout_alignEnd="@+id/firstLine" />
+            android:layout_alignEnd="@+id/firstLine"
+            android:fontFamily="sans-serif"/>
 
         <RatingBar style="?android:attr/ratingBarStyleSmall"
                    android:layout_width="wrap_content"

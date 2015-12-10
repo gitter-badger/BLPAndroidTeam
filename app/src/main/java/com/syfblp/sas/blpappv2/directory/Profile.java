@@ -88,10 +88,10 @@ public class Profile extends AppCompatActivity {
         int id = 0;
         id = getResources().getIdentifier(lastNm.toLowerCase(), "drawable", Profile.this.getPackageName());
 
-        if(id == 0) {
+       /* if(id == 0) {
             profImage.setVisibility(View.GONE);
             return;
-        }
+        } */
 
         try {
             profImage.setImageDrawable(getResources().getDrawable(id));

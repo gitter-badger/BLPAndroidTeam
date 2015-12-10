@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by 212464350 on 11/24/2015.
@@ -136,6 +137,7 @@ public class DirectoryFragment extends Fragment {
             for (int i = 0; i < input.size(); i++) {
                 Person housing = input.get(i);
                 String lvnames = housing.getFirstName() + " " + housing.getLastName() + "- " + housing.getLocation();
+                Collections.sort(peopleArray);
                 peopleArray.add(lvnames);
 
             }

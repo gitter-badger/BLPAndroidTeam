@@ -24,11 +24,13 @@ public class HousingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_housing);
 
+
         Intent incomingIntent = this.getIntent();
         String nameToDisplay = (String)incomingIntent.getStringExtra("snails");
+        setTitle(nameToDisplay);
         input=(ArrayList<Housing_>)incomingIntent.getSerializableExtra("json");
-        TextView tV = (TextView)findViewById(R.id.apartmentName);
-        tV.setText(nameToDisplay);
+        //TextView tV = (TextView)findViewById(R.id.apartmentName);
+        //tV.setText(nameToDisplay);
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 

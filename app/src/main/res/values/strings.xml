@@ -6,9 +6,9 @@
     <string name="FirstLastName"><![CDATA[First & Last Name]]></string>
     <string name="FunctionLocation">Function, Location</string>
     <string name="role">Role</string>
-    <string name="rolelbl">Rotation Title</string>
+    <string name="rolelbl">Rotation Title:</string>
     <string name="assignleader">AssignmentLeader</string>
-    <string name="alLbl">Assignment Leader</string>
+    <string name="alLbl">Assignment Leader:</string>
     <string name="phone">Phone</string>
     <string name="email">Email</string>
     <string name="action_settings">Settings</string>

@@ -80,7 +80,7 @@
                 android:id="@+id/txtALLbl"
                 android:layout_below="@+id/txtRole"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="43dp" />
+                android:layout_marginTop="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -96,10 +96,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="University"
+                android:text="@string/university"
                 android:id="@+id/txtUnivLbl"
                 android:layout_below="@+id/txtAL"
-                android:layout_marginTop="43dp"
+                android:layout_marginTop="15dp"
                 android:layout_alignParentStart="true" />
 
             <TextView
@@ -118,7 +118,7 @@
                 android:text="@string/email"
                 android:id="@+id/txtEmail"
                 android:layout_below="@+id/txtUniv"
-                android:layout_marginTop="43dp"
+                android:layout_marginTop="15dp"
                 android:layout_alignParentStart="true" />
 
             <TextView
@@ -128,17 +128,34 @@
                 android:text="@string/phone"
                 android:id="@+id/txtPhone"
                 android:layout_below="@+id/txtEmail"
-                android:layout_alignParentStart="true"/>
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btnCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             style="@style/FloatingActionButton"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_phone"/>
+            android:src="@drawable/ic_phone" />
+
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|end">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:src="@android:drawable/ic_dialog_email"/>
+
+        </LinearLayout> -->
+
+
+
 
     </LinearLayout>
 

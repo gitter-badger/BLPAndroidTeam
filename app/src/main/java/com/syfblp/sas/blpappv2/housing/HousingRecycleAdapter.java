@@ -84,7 +84,7 @@ public class HousingRecycleAdapter extends RecyclerView.Adapter<HousingRecycleAd
                 //remove(name);
             }
         });
-*/      if (name.getApartmentName().equals("Null")){
+*/      if (name.getApartmentName().isEmpty()){
             holder.txtApartmentBuilding.setText("House for Rent");
             }
         else{

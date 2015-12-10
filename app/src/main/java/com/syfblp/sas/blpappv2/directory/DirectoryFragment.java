@@ -136,7 +136,7 @@ public class DirectoryFragment extends Fragment {
             super.onPostExecute(result);
             for (int i = 0; i < input.size(); i++) {
                 Person housing = input.get(i);
-                String lvnames = housing.getFirstName() + " " + housing.getLastName() + " |  " + housing.getLocation();
+                String lvnames = housing.getFirstName() + " " + housing.getLastName() + " | " + housing.getLocation();
                 Collections.sort(peopleArray);
                 peopleArray.add(lvnames);
 

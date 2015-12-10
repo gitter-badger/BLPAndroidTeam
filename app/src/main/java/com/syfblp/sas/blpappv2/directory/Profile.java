@@ -90,7 +90,7 @@ public class Profile extends AppCompatActivity {
         Person toBeReturned = null;
         for (int i = 0; i < input.size(); i++) {
             Person check = (Person) input.get(i);
-            String check1 = check.getFirstName() + " " + check.getLastName() + "- " + check.getLocation();
+            String check1 = check.getFirstName() + " " + check.getLastName() + " | " + check.getLocation();
             if (check1.equals(nameToDisplay)) {
                 toBeReturned = check;
             }

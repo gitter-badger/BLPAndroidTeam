@@ -17,14 +17,15 @@
             android:orientation="vertical"
             android:id="@+id/header"
             android:gravity="center"
-            android:background="#3B3C43">
+            android:background="#3B3C43"
+            android:fontFamily="sans-serif">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                app:civ_border_width="1dp"
+                app:civ_border_width="3dp"
                 app:civ_border_color="#FBC600"
                 android:layout_marginTop="15dp"/>
 
@@ -36,7 +37,8 @@
                 android:layout_marginTop="5dp"
                 android:editable="false"
                 android:textSize="@dimen/abc_text_size_headline_material"
-                android:textColor="#fff"/>
+                android:textColor="#fff"
+                android:fontFamily="sans-serif-medium"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -45,14 +47,16 @@
                 android:text="@string/FunctionLocation"
                 android:id="@+id/txtFunctionLocation"
                 android:textColor="#94969A"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="15dp"
+                android:fontFamily="sans-serif"/>
 
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp">
+            android:layout_marginLeft="15dp"
+            android:fontFamily="sans-serif">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,7 +65,9 @@
                 android:text="@string/rolelbl"
                 android:id="@+id/txtRoleLbl"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="17sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,7 +76,9 @@
                 android:text="@string/role"
                 android:id="@+id/txtRole"
                 android:layout_below="@+id/txtRoleLbl"
-                android:layout_alignParentStart="true"/>
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +88,9 @@
                 android:id="@+id/txtALLbl"
                 android:layout_below="@+id/txtRole"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="15dp" />
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="17sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -90,17 +100,21 @@
                 android:id="@+id/txtAL"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/txtALLbl"
-                android:layout_alignParentLeft="true"/>
+                android:layout_alignParentLeft="true"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/university"
+                android:text="University:"
                 android:id="@+id/txtUnivLbl"
                 android:layout_below="@+id/txtAL"
-                android:layout_marginTop="15dp"
-                android:layout_alignParentStart="true" />
+                android:layout_marginTop="28dp"
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="17sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -109,7 +123,20 @@
                 android:text="BLP's University"
                 android:id="@+id/txtUniv"
                 android:layout_below="@+id/txtUnivLbl"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Contact Info:"
+                android:id="@+id/txtContactLbl"
+                android:layout_below="@+id/txtUniv"
+                android:layout_marginTop="28dp"
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="17sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,9 +144,11 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/email"
                 android:id="@+id/txtEmail"
-                android:layout_below="@+id/txtUniv"
-                android:layout_marginTop="15dp"
-                android:layout_alignParentStart="true" />
+                android:layout_below="@+id/txtContactLbl"
+                android:layout_marginTop="0dp"
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -128,7 +157,10 @@
                 android:text="@string/phone"
                 android:id="@+id/txtPhone"
                 android:layout_below="@+id/txtEmail"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"/>
+
 
         </RelativeLayout>
 

@@ -27,10 +27,6 @@ public class Person implements Comparable<Person>,Serializable {
 
     public String university;
 
-    public int compareTo(Person other) {
-        return lastName.compareTo(other.lastName);
-    }
-
     public String getPersId() {
         return persId;
     }
@@ -100,6 +96,12 @@ public class Person implements Comparable<Person>,Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    //sort name list
+    @Override
+    public int compareTo(Person other) {
+        return this.getLastName().compareTo(other.getLastName());
     }
 
 

@@ -5,7 +5,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.syfblp.sas.testfortab.R;
+import com.syfblp.sas.blpappv2.R;
+
 
 /**
  * Created by 212464350 on 11/4/2015.

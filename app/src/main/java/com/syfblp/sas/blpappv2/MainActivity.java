@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.syfblp.sas.blpappv2.announcements.AnnouncementsFragment;
 import com.syfblp.sas.blpappv2.directory.DirectoryFragment;
+import com.syfblp.sas.blpappv2.directory.TabsFragment;
 import com.syfblp.sas.blpappv2.events.EventFragment;
 import com.syfblp.sas.blpappv2.housing.HousingFragment;
 
@@ -41,8 +42,8 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FragmentManager fragmentManager=getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame,new AnnouncementsFragment()).commit();
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, new AnnouncementsFragment()).commit();
         setTitle("Announcements");
 
 
@@ -87,24 +88,20 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        FragmentManager fragmentManager=getFragmentManager();
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 
 
         if (id == nav_home) {
-            // makes the home fragment
-            AnnouncementsFragment.newInstance();
-            fragmentManager.beginTransaction().replace(R.id.content_frame,new AnnouncementsFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, AnnouncementsFragment.newInstance()).commit();
+
         } else if (id == R.id.nav_directory) {
-            DirectoryFragment.newInstance();
-            fragmentManager.beginTransaction().replace(R.id.content_frame,new DirectoryFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, TabsFragment.newInstance()).commit();
 
         } else if (id == R.id.nav_event) {
-            EventFragment.newInstance();
-            fragmentManager.beginTransaction().replace(R.id.content_frame,new EventFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, EventFragment.newInstance()).commit();
 
         } else if (id == R.id.nav_housing) {
-            HousingFragment.newInstance();
-            fragmentManager.beginTransaction().replace(R.id.content_frame,new HousingFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, HousingFragment.newInstance()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

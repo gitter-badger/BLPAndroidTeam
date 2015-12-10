@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.syfblp.sas.blpappv2.R;
+import com.syfblp.sas.blpappv2.ServiceHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +26,7 @@ import java.util.ArrayList;
 /**
  * Created by 212464350 on 12/9/2015.
  */
-public class TabsFragment extends Fragment {
+public class  TabsFragment extends Fragment {
 
     public static final ArrayList<Person> peopleBackup = new ArrayList<>();
     public static final ArrayList<String> nameBackup = new ArrayList<>();
@@ -80,7 +83,7 @@ public class TabsFragment extends Fragment {
         }
 
         @Override
-        public android.support.v4.app.Fragment getItem(int position) {
+        public Fragment getItem(int position) {
             switch (position) {
                 case 0:
                     return DirectoryFragment.newInstance();

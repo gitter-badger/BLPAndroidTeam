@@ -11,7 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import com.syfblp.sas.testfortab.R;
+import com.syfblp.sas.blpappv2.R;
+
 
 /**
  * Created by 212464350 on 12/9/2015.

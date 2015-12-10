@@ -12,7 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import com.syfblp.sas.testfortab.R;
+import com.syfblp.sas.blpappv2.R;
+
 
 /**
  * Created by 212464350 on 12/9/2015.
@@ -22,6 +23,8 @@ public class LocationFilter extends Fragment {
     private Spinner spinner1;
     ArrayAdapter<String> adapter;
     ArrayAdapter<String> adapter1;
+
+
     public static LocationFilter newInstance() {
         LocationFilter fragment = new LocationFilter();
         return fragment;

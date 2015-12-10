@@ -1,9 +1,9 @@
 package com.syfblp.sas.blpappv2.directory;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +27,7 @@ import java.util.Collections;
  * Created by 212464350 on 11/24/2015.
  */
 public class DirectoryFragment extends Fragment {
+
     ArrayList<Person> input = new ArrayList<>();
     ArrayList<String> peopleArray = new ArrayList<>();
     private static final String JSON = "directory" ;
@@ -46,7 +47,7 @@ public class DirectoryFragment extends Fragment {
     private static String url = "https://uat.onlinecreditcenter6.com/cs/groups/cmswebsite/documents/websiteasset/directory_android.json" ;
 
 
-    public static DirectoryFragment newInstance() {
+    public static Fragment newInstance() {
         DirectoryFragment fragment = new DirectoryFragment();
         return fragment;
     }

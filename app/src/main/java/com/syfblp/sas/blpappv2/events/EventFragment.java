@@ -1,8 +1,8 @@
 package com.syfblp.sas.blpappv2.events;
 
-import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -28,17 +28,6 @@ public class EventFragment extends Fragment {
     //URL to get JSON Array
     private static String url = "https://uat.onlinecreditcenter6.com/cs/groups/cmswebsite/documents/websiteasset/calendar_android.json";
 
-    //JSON Node Names
-//    private static final String CALENDAR = "event";
-//    private static final String ID = "id";
-//    private static final String STARTDATE = "startdate";
-//    private static final String STARTTIME = "starttime";
-//    private static final String ENDDATE = "enddate";
-//    private static final String ENDTIME = "endtime";
-//    private static final String EVENT = "event";
-//    private static final String DESCRIPTION = "description";
-//    private static final String AVAILABILITY = "availability";
-//    private static final String LOCATION = "location";
 
     JSONArray eventArray = null;
 

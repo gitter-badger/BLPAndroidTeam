@@ -66,6 +66,24 @@ public class Profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+       /* View btnView = findViewById(R.id.btnEmail);
+        btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //final Intent intent = new Intent(Intent.EXTRA_EMAIL, Uri.parse("email:" + person.getEmail()));
+
+                //startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+
+                Intent mailIntent = new Intent(Intent.EXTRA_EMAIL, Uri.parse("email:" + person.getEmail()));
+                mailIntent.setAction(Intent.ACTION_SEND);
+                mailIntent.setType("message/rfc822");
+                //mailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{""});
+                startActivity(Intent.createChooser(mailIntent, "Email:"));
+            }
+        }); */
+
+
     }
 
     private Person getPeople(ArrayList<Person> input) {

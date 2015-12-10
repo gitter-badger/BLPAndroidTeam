@@ -17,6 +17,8 @@ import com.syfblp.sas.blpappv2.R;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
+
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
 	private ArrayList<Event> mDataset;
@@ -114,13 +116,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 Calendar beginTime = Calendar.getInstance();
-                beginTime.set(startDate.getYear(), startDate.getMonth(), startDate.getDay(),startTime.getHours(),startTime.getMinutes(), startTime.getSeconds());
+                beginTime.setTime(startDate);
+
                 Calendar endTime = Calendar.getInstance();
-                endTime.set(endDate.getYear(), endDate.getMonth(), endDate.getDay(), edTime.getHours(), edTime.getMinutes(), edTime.getSeconds());
+                endTime.setTime(endDate);
+
                 Intent intent = new Intent(Intent.ACTION_INSERT)
-                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, name.getStarttime())
-                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, name.getEndtime())
+                        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
                         .putExtra(CalendarContract.Events.TITLE, name.getEvent())
                         .putExtra(CalendarContract.Events.DESCRIPTION, name.getDescription())
                         .putExtra(CalendarContract.Events.EVENT_LOCATION, name.getLocation())

@@ -1,0 +1,217 @@
+package com.syfblp.sas.blpappv2.directory;
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+/**
+ * Created by 212464350 on 12/9/2015.
+ */
+public class TabsFragment extends Fragment {
+
+    public static final ArrayList<Person> peopleBackup = new ArrayList<>();
+    public static final ArrayList<String> nameBackup = new ArrayList<>();
+
+    public static ArrayList<Person> people = new ArrayList<>();
+    public static ArrayList<String> names = new ArrayList<>();
+    public static ArrayList<String> location = new ArrayList<>();
+    public static ArrayList<String> functions = new ArrayList<>();
+
+    private static final String JSON = "directory" ;
+    private static final String FIRST_NAME = "firstName" ;
+    private static final String ID = "id" ;
+    private static final String LAST_NAME = "lastName" ;
+    private static final String PHONE = "phone" ;
+    private static final String FUNCTION = "function" ;
+    private static final String EMAIL = "email" ;
+    private static final String ROTATION = "role" ;
+    private static final String LOCAL = "location" ;
+    private static final String ASSILEAD = "al" ;
+    private static final String UNIVERSITY="university";
+
+    JSONArray personArray = null;
+    ListView listView;
+    ArrayAdapter<String> adapter;
+    private static String url = "https://uat.onlinecreditcenter6.com/cs/groups/cmswebsite/documents/websiteasset/directory_android.json" ;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private View mView;
+
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
+    private ViewPager mViewPager;
+
+
+    public static TabsFragment newInstance() {
+        TabsFragment fragment = new TabsFragment();
+        return fragment;
+    }
+
+
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup container,Bundle onInstanceSavedState){
+        mView = layoutInflater.inflate(R.layout.tab_layout,container,false);
+
+        new JSONParse().execute();
+
+        return mView;
+    }
+
+
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public android.support.v4.app.Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return DirectoryFragment.newInstance();
+                case 1:
+                    return LocationFilter.newInstance();
+                case 2:
+                    return FunctionFilter.newInstance();
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "Name";
+                case 1:
+                    return "Location";
+                case 2:
+                    return "Function";
+            }
+            return null;
+        }
+    }
+
+
+    private class JSONParse extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            ServiceHandler sh = new ServiceHandler();
+
+            // Making a request to url and getting response
+            String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
+
+            Log.d("Response: ", "> " + jsonStr);
+
+            if (jsonStr != null) {
+                try {
+                    JSONObject json = new JSONObject(jsonStr);
+
+                    // Getting JSON Array
+                    personArray = json.getJSONArray(JSON);
+                    for (int i = 0; i < personArray.length(); i++) {
+                        JSONObject c = personArray.getJSONObject(i);
+                        // Storing  JSON item in a Variable
+                        String id = c.getString(ID);
+                        String fName = c.getString(FIRST_NAME);
+                        String lName = c.getString(LAST_NAME);
+                        String phone = c.getString(PHONE);
+                        String function = c.getString(FUNCTION);
+                        String email = c.getString(EMAIL);
+                        String rotation = c.getString(ROTATION);
+                        String local = c.getString(LOCAL);
+                        String assilead = c.getString(ASSILEAD);
+                        String university=c.getString(UNIVERSITY);
+                        Person person = new Person(id, fName, lName, local, function, rotation, assilead, email, phone,university);
+                        people.add(person);
+
+                        String lvnames = person.getFirstName() + " " + person.getLastName() + "- " + person.getLocation();
+                        String locationlv=person.getLocation();
+                        String functionlv=person.getFunction();
+                        names.add(lvnames);
+                        if (checkUnique(person.getLocation(),location)){location.add(locationlv);}
+                        if (checkUnique(person.getFunction(),functions)){functions.add(functionlv);}
+
+                    }
+                    peopleBackup.addAll(people);
+                    nameBackup.addAll(names);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Log.e("ServiceHandler", "Couldn't get any data from the url");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            createTabs();
+            location.remove(0);
+        }
+    }
+
+
+    public void createTabs() {
+
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getActivity().getSupportFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) mView.findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        TabLayout tabLayout = (TabLayout) mView.findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+    }
+    private boolean checkUnique(String lvnames, ArrayList<String> location) {
+        boolean unique=true;
+        for (int i=0; 0<location.indexOf(lvnames);i++) {
+            if (location.get(i).equals(lvnames)) {
+                unique = false;
+                break;
+            }
+        }
+
+        for (int y=location.indexOf(lvnames)+1; y<location.size();y++){
+            if (location.get(y).equals(lvnames)){
+                unique=false;
+                break;
+            }
+        }
+
+
+        return unique;
+    }
+}
+
+
+

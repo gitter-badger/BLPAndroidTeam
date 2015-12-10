@@ -56,7 +56,8 @@
             android:background="?colorAccent"
             android:layout_gravity="center"
             android:layout_margin="32dp"
-            android:fontFamily="sans-serif"/>
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"/>
 
     </LinearLayout>
 

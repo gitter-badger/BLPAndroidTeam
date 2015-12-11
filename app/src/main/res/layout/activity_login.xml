@@ -59,6 +59,17 @@
             android:fontFamily="sans-serif"
             android:textSize="18sp"/>
 
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/button45"
+            android:background="@color/background_material_dark"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right" />
+
     </LinearLayout>
 
 </LinearLayout>

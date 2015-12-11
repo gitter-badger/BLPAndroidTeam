@@ -22,6 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 /**
  * Created by 212464350 on 12/9/2015.
@@ -49,8 +51,6 @@ public class  TabsFragment extends Fragment {
     private static final String UNIVERSITY="university";
 
     JSONArray personArray = null;
-    ListView listView;
-    ArrayAdapter<String> adapter;
     private static String url = "https://uat.onlinecreditcenter6.com/cs/groups/cmswebsite/documents/websiteasset/directory_android.json" ;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private View mView;
@@ -214,6 +214,73 @@ public class  TabsFragment extends Fragment {
 
         return unique;
     }
+
+    /*
+    private class JSONParse extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            ServiceHandler sh = new ServiceHandler();
+
+            // Making a request to url and getting response
+            String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
+
+            Log.d("Response: ", "> " + jsonStr);
+
+            if (jsonStr != null) {
+                try {
+                    JSONObject json = new JSONObject(jsonStr);
+
+                    // Getting JSON Array
+                    personArray = json.getJSONArray(JSON);
+                    for (int i = 0; i < personArray.length(); i++) {
+                        JSONObject c = personArray.getJSONObject(i);
+                        // Storing  JSON item in a Variable
+                        String id = c.getString(ID);
+                        String fName = c.getString(FIRST_NAME);
+                        String lName = c.getString(LAST_NAME);
+                        String phone = c.getString(PHONE);
+                        String function = c.getString(FUNCTION);
+                        String email = c.getString(EMAIL);
+                        String rotation = c.getString(ROTATION);
+                        String local = c.getString(LOCAL);
+                        String assilead = c.getString(ASSILEAD);
+                        String university=c.getString(UNIVERSITY);
+                        Person housing = new Person(id, fName, lName, local, function, rotation, assilead, email, phone,university);
+                        input.add(housing);
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Log.e("ServiceHandler", "Couldn't get any data from the url");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            for (int i = 0; i < input.size(); i++) {
+                Person housing = input.get(i);
+                String lvnames = housing.getFirstName() + " " + housing.getLastName() + " | " + housing.getLocation();
+                Collections.sort(peopleArray);
+                peopleArray.add(lvnames);
+
+            }
+            listView.setAdapter(adapter);
+
+        }
+    }*/
 }
 
 

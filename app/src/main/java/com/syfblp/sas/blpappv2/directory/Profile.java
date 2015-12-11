@@ -20,7 +20,7 @@ public class Profile extends AppCompatActivity {
 
     ArrayList<Person> tobedispayedList = new ArrayList<>();
     ArrayList<Person> input = new ArrayList<>();
-    String nameToDisplay;
+    Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +30,8 @@ public class Profile extends AppCompatActivity {
 
 
         Intent incomingIntent = this.getIntent();
-        nameToDisplay = (String) incomingIntent.getStringExtra("snails");
+        person = (Person) incomingIntent.getSerializableExtra("snails");
         input = (ArrayList<Person>) incomingIntent.getSerializableExtra("json");
-
-        final Person person = getPeople(input);
 
         getProfImg();
 
@@ -66,40 +64,18 @@ public class Profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-       /* View btnView = findViewById(R.id.btnEmail);
-        btnView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //final Intent intent = new Intent(Intent.EXTRA_EMAIL, Uri.parse("email:" + person.getEmail()));
-
-                //startActivity(Intent.createChooser(intent, "Choose an Email client :"));
-
-                Intent mailIntent = new Intent(Intent.EXTRA_EMAIL, Uri.parse("email:" + person.getEmail()));
-                mailIntent.setAction(Intent.ACTION_SEND);
-                mailIntent.setType("message/rfc822");
-                //mailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{""});
-                startActivity(Intent.createChooser(mailIntent, "Email:"));
-            }
-        }); */
-
-
     }
 
-    private Person getPeople(ArrayList<Person> input) {
-        Person toBeReturned = null;
-        for (int i = 0; i < input.size(); i++) {
-            Person check = (Person) input.get(i);
-            String check1 = check.getFirstName() + " " + check.getLastName() + " | " + check.getLocation();
-            if (check1.equals(nameToDisplay)) {
-                toBeReturned = check;
-            }
-        }
-        return toBeReturned;
+    private Person getPeople() {
+        return person;
     }
 
     private void getProfImg() {
-        final Person person = getPeople(input);
+
+        if(null == person) {
+            return;
+        }
+
         CircleImageView profImage = (CircleImageView) findViewById(R.id.profile_image);
         String lastNm = person.getLastName();
 

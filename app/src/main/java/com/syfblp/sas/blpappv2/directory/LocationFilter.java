@@ -52,8 +52,10 @@ public class LocationFilter extends Fragment {
                 startActivity(intent);
             }
         };
+        adapter1.notifyDataSetChanged();
         listView.setOnItemClickListener(mMessageClickedHandler);
         listView.setAdapter(adapter1);
+        adapter1.notifyDataSetChanged();
 
         return rootview;
     }

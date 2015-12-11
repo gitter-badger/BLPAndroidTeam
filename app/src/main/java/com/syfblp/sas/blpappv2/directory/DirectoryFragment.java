@@ -48,8 +48,8 @@ public class DirectoryFragment extends Fragment {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
 
                 Intent intent = new Intent(parent.getContext(), Profile.class);
-                String clickedOnCity = TabsFragment.nameBackup.get(position);
-                intent.putExtra("snails", clickedOnCity);
+                Person person = TabsFragment.people.get(position);
+                intent.putExtra("snails", person);
                 intent.putExtra("json", TabsFragment.peopleBackup);
                 startActivity(intent);
             }

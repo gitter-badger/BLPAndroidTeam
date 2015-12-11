@@ -20,7 +20,7 @@ public class Profile extends AppCompatActivity {
 
     ArrayList<Person> tobedispayedList = new ArrayList<>();
     ArrayList<Person> input = new ArrayList<>();
-    String nameToDisplay;
+    Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +30,8 @@ public class Profile extends AppCompatActivity {
 
 
         Intent incomingIntent = this.getIntent();
-        nameToDisplay = (String) incomingIntent.getStringExtra("snails");
+        person = (Person) incomingIntent.getSerializableExtra("snails");
         input = (ArrayList<Person>) incomingIntent.getSerializableExtra("json");
-
-        final Person person = getPeople(input);
 
         getProfImg();
 
@@ -68,20 +66,11 @@ public class Profile extends AppCompatActivity {
         });
     }
 
-    private Person getPeople(ArrayList<Person> input) {
-        Person toBeReturned = null;
-        for (int i = 0; i < input.size(); i++) {
-            Person check = (Person) input.get(i);
-            String check1 = check.getFirstName() + " " + check.getLastName() + " | " + check.getLocation();
-            if (nameToDisplay.contains(check.getFirstName())) {
-                toBeReturned = check;
-            }
-        }
-        return toBeReturned;
+    private Person getPeople() {
+        return person;
     }
 
     private void getProfImg() {
-        final Person person = getPeople(input);
 
         if(null == person) {
             return;

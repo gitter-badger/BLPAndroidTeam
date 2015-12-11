@@ -1,5 +1,7 @@
 package com.syfblp.sas.blpappv2.announcements;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,7 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.syfblp.sas.blpappv2.MainActivity;
 import com.syfblp.sas.blpappv2.R;
 import com.syfblp.sas.blpappv2.ServiceHandler;
 import com.syfblp.sas.blpappv2.housing.HomeRecycleAdapter;
@@ -36,6 +40,7 @@ public class AnnouncementsFragment extends Fragment {
     private static final String ID = "id";
     private static final String DESCRIPTION = "description";
     private static final String DATE = "date";
+    private static final String NEWSURL = "url";
 
     JSONArray newsArray = null;
 
@@ -76,7 +81,7 @@ public class AnnouncementsFragment extends Fragment {
 
             Log.d("Response: ", "> " + jsonStr);
 
-            mAdapter = new HomeRecycleAdapter(input);
+            mAdapter = new HomeRecycleAdapter(getActivity(), input);
             if (jsonStr != null) {
                 try {
                     JSONObject json = new JSONObject(jsonStr);
@@ -89,10 +94,12 @@ public class AnnouncementsFragment extends Fragment {
                         String id = c.getString(ID);
                         String description = c.getString(DESCRIPTION);
                         String date = c.getString(DATE);
+                        String newsurl = c.getString(NEWSURL);
                         Announcement announcement = new Announcement();
                         announcement.setId(Integer.parseInt(id));
                         announcement.setDescription(description);
                         announcement.setTime(date);
+                        announcement.setNewsurl(newsurl);
                         input.add(announcement);
 
                     }
@@ -110,10 +117,9 @@ public class AnnouncementsFragment extends Fragment {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-                 mAdapter = new HomeRecycleAdapter(input);
+                 mAdapter = new HomeRecycleAdapter(getActivity(),  input);
 
                  recyclerView.setAdapter(mAdapter);
-
             }
 
         }

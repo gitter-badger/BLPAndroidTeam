@@ -15,4 +15,5 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="add">Add to Calendar</string>
     <string name="university">University:</string>
+    <string name="NewsfeedHeading">Check out what\'s new with Synchrony Financial:</string>
 </resources>

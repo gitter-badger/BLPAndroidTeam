@@ -7,6 +7,7 @@ public class Announcement {
     int Id;
     String description;
     String time;
+    String newsurl;
 
 
     public int getId() {
@@ -31,6 +32,14 @@ public class Announcement {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getNewsurl() {
+        return newsurl;
+    }
+
+    public void setNewsurl(String newsurl) {
+        this.newsurl = newsurl;
     }
 
 

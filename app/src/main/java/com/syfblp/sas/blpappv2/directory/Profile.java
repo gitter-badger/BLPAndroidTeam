@@ -66,24 +66,6 @@ public class Profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-       /* View btnView = findViewById(R.id.btnEmail);
-        btnView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //final Intent intent = new Intent(Intent.EXTRA_EMAIL, Uri.parse("email:" + person.getEmail()));
-
-                //startActivity(Intent.createChooser(intent, "Choose an Email client :"));
-
-                Intent mailIntent = new Intent(Intent.EXTRA_EMAIL, Uri.parse("email:" + person.getEmail()));
-                mailIntent.setAction(Intent.ACTION_SEND);
-                mailIntent.setType("message/rfc822");
-                //mailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{""});
-                startActivity(Intent.createChooser(mailIntent, "Email:"));
-            }
-        }); */
-
-
     }
 
     private Person getPeople(ArrayList<Person> input) {
@@ -91,7 +73,7 @@ public class Profile extends AppCompatActivity {
         for (int i = 0; i < input.size(); i++) {
             Person check = (Person) input.get(i);
             String check1 = check.getFirstName() + " " + check.getLastName() + " | " + check.getLocation();
-            if (check1.equals(nameToDisplay)) {
+            if (nameToDisplay.contains(check.getFirstName())) {
                 toBeReturned = check;
             }
         }
@@ -100,6 +82,11 @@ public class Profile extends AppCompatActivity {
 
     private void getProfImg() {
         final Person person = getPeople(input);
+
+        if(null == person) {
+            return;
+        }
+
         CircleImageView profImage = (CircleImageView) findViewById(R.id.profile_image);
         String lastNm = person.getLastName();
 

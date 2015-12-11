@@ -24,8 +24,7 @@ public class FunctionFilter extends Fragment {
     private ArrayAdapter<String> adapter1;
 
 
-    //  private Spinner spinner2;
-    public static FunctionFilter newInstance() {
+    public static Fragment newInstance() {
         FunctionFilter fragment = new FunctionFilter();
         return fragment;
     }
@@ -41,8 +40,10 @@ public class FunctionFilter extends Fragment {
         spinner1.setAdapter(adapter);
         spinner1.setOnItemSelectedListener(new FunctionSelector());
         ListView listView = (ListView) rootview.findViewById(R.id.listView);
+
         AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
+
                 Intent intent = new Intent(parent.getContext(), Profile.class);
                 String clickedOnCity = TabsFragment.names.get(position);
                 intent.putExtra("snails", clickedOnCity);
@@ -50,9 +51,11 @@ public class FunctionFilter extends Fragment {
                 startActivity(intent);
             }
         };
+
+        adapter1.notifyDataSetChanged();
         listView.setOnItemClickListener(mMessageClickedHandler);
         listView.setAdapter(adapter1);
-
+        adapter1.notifyDataSetChanged();
         return rootview;
     }
 

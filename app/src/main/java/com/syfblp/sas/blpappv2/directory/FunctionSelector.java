@@ -19,21 +19,21 @@ public class FunctionSelector implements AdapterView.OnItemSelectedListener {
 
         TabsFragment.names.clear();
 
-        ListView listView=(ListView) parent.getRootView().findViewById(R.id.listView);
-        String test =parent.getItemAtPosition(position).toString();
+        ListView listView = (ListView) parent.getRootView().findViewById(R.id.listView);
+        String test = parent.getItemAtPosition(position).toString();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_list_item_1, TabsFragment.names);
 
         for(int i=0; i < TabsFragment.people.size();i++) {
             Person person = TabsFragment.people.get(i);
             if (test.equals(person.getFunction())) {
                 String lvnames= person.getFirstName()+ " "+person.getLastName()+"- "+person.getLocation();
                 TabsFragment.names.add(lvnames);
-
+                adapter.notifyDataSetChanged();
             }
         }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_list_item_1, TabsFragment.names);
-
+        adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 

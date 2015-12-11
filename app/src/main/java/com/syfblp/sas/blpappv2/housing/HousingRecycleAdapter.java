@@ -1,5 +1,8 @@
 package com.syfblp.sas.blpappv2.housing;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +39,9 @@ public class HousingRecycleAdapter extends RecyclerView.Adapter<HousingRecycleAd
             txtCityState = (TextView) v.findViewById(R.id.thirdLine);
             txtCost = (TextView) v.findViewById(R.id.cost);
             ratingBarValue = (RatingBar) v.findViewById(R.id.ratingBar);
+
+            LayerDrawable stars = (LayerDrawable) ratingBarValue.getProgressDrawable();
+            stars.getDrawable(2).setColorFilter(Color.parseColor("#6ebf4a"), PorterDuff.Mode.SRC_ATOP);
 
         }
     }

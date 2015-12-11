@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Black-->
     <color name="colorPrimary">#3b3b45</color>
+    <!--Gold-->
     <color name="colorPrimaryDark">#f1c43f</color>
+    <!--Green-->
     <color name="colorAccent">#6ebf4a</color>
 </resources>

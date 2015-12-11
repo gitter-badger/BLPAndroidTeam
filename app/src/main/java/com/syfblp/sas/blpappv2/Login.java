@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "Crispy!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Stay crispy my friends.", Toast.LENGTH_SHORT).show();
             }
         });
 

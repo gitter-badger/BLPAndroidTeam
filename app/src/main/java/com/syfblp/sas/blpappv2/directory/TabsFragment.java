@@ -181,6 +181,27 @@ public class  TabsFragment extends Fragment {
             createTabs();
             location.remove(0);
         }
+
+
+        private boolean checkUnique(String lvnames, ArrayList<String> location) {
+            boolean unique=true;
+            for (int i=0; 0<location.indexOf(lvnames);i++) {
+                if (location.get(i).equals(lvnames)) {
+                    unique = false;
+                    break;
+                }
+            }
+
+            for (int y=location.indexOf(lvnames)+1; y<location.size();y++){
+                if (location.get(y).equals(lvnames)){
+                    unique=false;
+                    break;
+                }
+            }
+
+
+            return unique;
+        }
     }
 
 
@@ -195,92 +216,6 @@ public class  TabsFragment extends Fragment {
         TabLayout tabLayout = (TabLayout) mView.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
-    private boolean checkUnique(String lvnames, ArrayList<String> location) {
-        boolean unique=true;
-        for (int i=0; 0<location.indexOf(lvnames);i++) {
-            if (location.get(i).equals(lvnames)) {
-                unique = false;
-                break;
-            }
-        }
-
-        for (int y=location.indexOf(lvnames)+1; y<location.size();y++){
-            if (location.get(y).equals(lvnames)){
-                unique=false;
-                break;
-            }
-        }
-
-
-        return unique;
-    }
-
-    /*
-    private class JSONParse extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0) {
-            ServiceHandler sh = new ServiceHandler();
-
-            // Making a request to url and getting response
-            String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
-
-            Log.d("Response: ", "> " + jsonStr);
-
-            if (jsonStr != null) {
-                try {
-                    JSONObject json = new JSONObject(jsonStr);
-
-                    // Getting JSON Array
-                    personArray = json.getJSONArray(JSON);
-                    for (int i = 0; i < personArray.length(); i++) {
-                        JSONObject c = personArray.getJSONObject(i);
-                        // Storing  JSON item in a Variable
-                        String id = c.getString(ID);
-                        String fName = c.getString(FIRST_NAME);
-                        String lName = c.getString(LAST_NAME);
-                        String phone = c.getString(PHONE);
-                        String function = c.getString(FUNCTION);
-                        String email = c.getString(EMAIL);
-                        String rotation = c.getString(ROTATION);
-                        String local = c.getString(LOCAL);
-                        String assilead = c.getString(ASSILEAD);
-                        String university=c.getString(UNIVERSITY);
-                        Person housing = new Person(id, fName, lName, local, function, rotation, assilead, email, phone,university);
-                        input.add(housing);
-
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                Log.e("ServiceHandler", "Couldn't get any data from the url");
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-            for (int i = 0; i < input.size(); i++) {
-                Person housing = input.get(i);
-                String lvnames = housing.getFirstName() + " " + housing.getLastName() + " | " + housing.getLocation();
-                Collections.sort(peopleArray);
-                peopleArray.add(lvnames);
-
-            }
-            listView.setAdapter(adapter);
-
-        }
-    }*/
 }
 
 

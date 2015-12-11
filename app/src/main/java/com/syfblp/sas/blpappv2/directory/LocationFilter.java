@@ -14,6 +14,8 @@ import android.widget.Spinner;
 
 import com.syfblp.sas.blpappv2.R;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by 212464350 on 12/9/2015.
@@ -23,7 +25,8 @@ public class LocationFilter extends Fragment {
     private Spinner spinner1;
     ArrayAdapter<String> adapter;
     ArrayAdapter<String> adapter1;
-
+    ArrayList<String> func= TabsFragment.location;
+    ArrayList<String> peop= TabsFragment.names;
 
     public static LocationFilter newInstance() {
         LocationFilter fragment = new LocationFilter();
@@ -36,8 +39,8 @@ public class LocationFilter extends Fragment {
         final View rootview= inflater.inflate(R.layout.location_layout, container, false);
 
         spinner1 = (Spinner) rootview.findViewById(R.id.spinner2);
-        adapter = new ArrayAdapter<>(rootview.getContext(), android.R.layout.simple_list_item_1, TabsFragment.location);
-        adapter1 = new ArrayAdapter<>(rootview.getContext(), android.R.layout.simple_list_item_1, TabsFragment.names);
+        adapter = new ArrayAdapter<>(rootview.getContext(), android.R.layout.simple_list_item_1, func);
+        adapter1 = new ArrayAdapter<>(rootview.getContext(), android.R.layout.simple_list_item_1, peop);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setOnItemSelectedListener(new LocationSelector());
         spinner1.setAdapter(adapter);
@@ -46,8 +49,8 @@ public class LocationFilter extends Fragment {
         AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent intent = new Intent(parent.getContext(), Profile.class);
-                String clickedOnCity = TabsFragment.names.get(position);
-                intent.putExtra("snails", clickedOnCity);
+                Person person = TabsFragment.people.get(position);
+                intent.putExtra("snails", person);
                 intent.putExtra("json", TabsFragment.people);
                 startActivity(intent);
             }

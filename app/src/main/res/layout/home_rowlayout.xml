@@ -52,7 +52,7 @@
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            android:layout_height="27dp"
             android:text="Visit Page"
             android:id="@+id/btnURL"
             android:visibility="visible"

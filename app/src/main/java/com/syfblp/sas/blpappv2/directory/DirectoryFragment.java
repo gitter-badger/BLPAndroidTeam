@@ -134,6 +134,11 @@ public class DirectoryFragment extends Fragment {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             //createTabs();
+
+            if(people.isEmpty()) {
+                return;
+            }
+
             location.remove(0);
 
             adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, nameBackup);

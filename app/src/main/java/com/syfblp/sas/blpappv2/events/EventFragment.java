@@ -55,17 +55,17 @@ public class EventFragment extends Fragment {
             ServiceHandler sh = new ServiceHandler();
 
             // Making a request to url and getting response
-            String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
+            final String jsonStr = sh.makeServiceCall(url, ServiceHandler.GET);
+            Log.d("Response: ", "> " + jsonStr);
 
-            Events events = new Gson().fromJson(jsonStr, Events.class);
-            EventFragment.this.events = events.getEvent();
+            final Events events = new Gson().fromJson(jsonStr, Events.class);
 
-            if(events == null) {
+            if(events == null || events.getEvent().isEmpty()) {
                 Log.e("Err", "No events found!");
-
+                return null;
             }
 
-            Log.d("Response: ", "> " + jsonStr);
+            EventFragment.this.events = events.getEvent();
 
             mAdapter = new EventAdapter(EventFragment.this.events, getActivity());
 

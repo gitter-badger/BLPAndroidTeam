@@ -52,11 +52,10 @@
             android:onClick="Success"
             android:id="@+id/button2"
             android:textColor="#fff"
-            android:textStyle="bold"
             android:background="?colorAccent"
             android:layout_gravity="center"
             android:layout_margin="32dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="sans-serif-medium"
             android:textSize="18sp"/>
 
         <Button

@@ -1,6 +1,7 @@
 package com.syfblp.sas.blpappv2.directory;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class FunctionFilter extends Fragment {
     private ArrayAdapter<String> adapter1;
     ArrayList<String> func= TabsFragment.functions;
     ArrayList<String> peop= TabsFragment.names;
+    ArrayList<Person> localPeople=null;
 
 
     public static Fragment newInstance() {
@@ -50,7 +52,7 @@ public class FunctionFilter extends Fragment {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
 
                 Intent intent = new Intent(parent.getContext(), Profile.class);
-                Person person = TabsFragment.people.get(position);
+                Person person = TabsFragment.changeList.get(position);
                 intent.putExtra("snails", person);
                 intent.putExtra("json", TabsFragment.people);
                 startActivity(intent);
@@ -63,5 +65,13 @@ public class FunctionFilter extends Fragment {
         adapter1.notifyDataSetChanged();
         return rootview;
     }
+private class ListParse extends AsyncTask<Void,Void,Void>{
 
+    @Override
+    protected Void doInBackground(Void... params) {
+
+
+        return null;
+    }
+}
 }

@@ -49,7 +49,7 @@ public class LocationFilter extends Fragment {
         AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent intent = new Intent(parent.getContext(), Profile.class);
-                Person person = TabsFragment.people.get(position);
+                Person person = TabsFragment.changeList.get(position);
                 intent.putExtra("snails", person);
                 intent.putExtra("json", TabsFragment.people);
                 startActivity(intent);

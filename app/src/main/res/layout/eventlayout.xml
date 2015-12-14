@@ -22,7 +22,8 @@
             android:text="@string/name"
             android:textSize="16sp"
             android:layout_alignParentEnd="true"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"/>
 
         <TextView
             android:id="@+id/secondLine"
@@ -34,7 +35,8 @@
             android:textSize="12sp"
             android:layout_below="@+id/firstLine"
             android:layout_alignParentStart="true"
-            android:longClickable="false" />
+            android:longClickable="false"
+            android:fontFamily="sans-serif"/>
 
         <TextView
             android:id="@+id/thirdLine"

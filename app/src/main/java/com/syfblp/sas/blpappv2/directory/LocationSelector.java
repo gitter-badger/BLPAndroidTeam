@@ -18,6 +18,7 @@ public class LocationSelector implements AdapterView.OnItemSelectedListener {
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
         TabsFragment.names.clear();
+        TabsFragment.changeList.clear();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(parent.getRootView().getContext(), android.R.layout.simple_list_item_1, TabsFragment.names);
 
         ListView listView = (ListView) parent.getRootView().findViewById(R.id.listView2);
@@ -28,6 +29,7 @@ public class LocationSelector implements AdapterView.OnItemSelectedListener {
             if (test.equals(person.getLocation())) {
                 String lvnames = person.getFirstName() + " " + person.getLastName();
                 TabsFragment.names.add(lvnames);
+                TabsFragment.changeList.add(person);
                 adapter.notifyDataSetChanged();
             }
         }

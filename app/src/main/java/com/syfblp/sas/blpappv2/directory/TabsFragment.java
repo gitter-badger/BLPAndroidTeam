@@ -32,6 +32,7 @@ public class  TabsFragment extends Fragment {
 
     public static final ArrayList<Person> peopleBackup = new ArrayList<>();
     public static final ArrayList<String> nameBackup = new ArrayList<>();
+    public static final ArrayList<Person> changeList=new ArrayList<>();
 
     public static ArrayList<Person> people = new ArrayList<>();
     public static ArrayList<String> names = new ArrayList<>();

@@ -95,8 +95,8 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content_frame, AnnouncementsFragment.newInstance()).commit();
 
         } else if (id == R.id.nav_directory) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, DirectoryFragment.newInstance()).commit();
-            //fragmentManager.beginTransaction().replace(R.id.content_frame, TabsFragment.newInstance()).commit();
+            //fragmentManager.beginTransaction().replace(R.id.content_frame, DirectoryFragment.newInstance()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, TabsFragment.newInstance()).commit();
 
         } else if (id == R.id.nav_event) {
             fragmentManager.beginTransaction().replace(R.id.content_frame, EventFragment.newInstance()).commit();

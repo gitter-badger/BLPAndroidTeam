@@ -18,6 +18,7 @@ public class FunctionSelector implements AdapterView.OnItemSelectedListener {
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         TabsFragment.names.clear();
+        TabsFragment.changeList.clear();
 
         ListView listView = (ListView) parent.getRootView().findViewById(R.id.listView);
         String test = parent.getItemAtPosition(position).toString();
@@ -28,6 +29,7 @@ public class FunctionSelector implements AdapterView.OnItemSelectedListener {
             if (test.equals(person.getFunction())) {
                 String lvnames= person.getFirstName()+ " "+person.getLastName()+"- "+person.getLocation();
                 TabsFragment.names.add(lvnames);
+                TabsFragment.changeList.add(person);
                 adapter.notifyDataSetChanged();
             }
         }
